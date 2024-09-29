@@ -1,0 +1,38 @@
+
+
+services:
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+    ports:
+      - "3308:3306"
+    networks:
+      - mynetwork
+
+  web:
+    build: .  # Ensure you have a Dockerfile in the current directory
+    ports:
+      - "8081:80"
+    volumes:
+      - .:/var/www/html
+    image: php:latest  # Use a PHP Apache image for executing PHP scripts
+    depends_on:
+      - db
+    networks:
+      - mynetwork
+  # Servicio de phpMyAdmin
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    depends_on:
+      - db
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: 1234
+    ports:
+      - "8082:80"
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:  # Declare the network
