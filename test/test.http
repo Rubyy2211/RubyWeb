@@ -1,0 +1,64 @@
+### Obtener mediciones
+GET http://localhost:8081/rest/getmediciones.php
+
+### Enviar Medicion
+POST http://localhost:8081/rest/enviarMedicion.php
+Content-Type: application/json
+
+{
+  "Hora": "22:00",
+  "Dia": "2024-10-05",
+  "Lugar": "Estacion Norte",
+  "TipoGas": "CO2",
+  "Valor": 45
+}
+
+### Obtener Medidas
+POST http://localhost/PW-2024-11/src/api/medidas
+Content-Type: application/x-www-form-urlencoded
+
+huertos=Huerto 1&nombre_kit=Kit 2
+### Todos los usarios
+GET http://localhost/ejercicio-login/src/api/usuarios
+
+### Crear un usuario
+POST http://localhost/ejercicio-login/src/api/usuarios
+Content-Type: application/x-www-form-urlencoded
+
+nombre=user&password=1234&rol=2
+
+> {%
+    client.assert(response.status === 200, 'Falló la creación de usuario');
+%}
+
+### Obtener un usuario
+GET http://localhost/ejercicio-login/src/api/usuarios/2
+
+> {%
+    client.assert(response.status === 200, 'No se recuperó el usuario 2');
+%}
+
+### Modificar un usuario
+PUT http://localhost/ejercicio-login/src/api/usuarios/3
+Content-Type: application/json
+
+{
+  "id": 3,
+  "nombre": "Pepe",
+  "idRol": 1,
+  "rol": "administrador"
+}
+
+> {%
+    client.assert(response.status === 200, 'Falló la modificación del usuario');
+%}
+
+### Eliminar un usuario
+DELETE http://localhost/ejercicio-login/src/api/usuarios/3
+
+> {%
+    client.assert(response.status === 200, 'Falló la eliminación del usuario');
+%}
+
+### Logout
+DELETE http://localhost/ejercicio-login/src/api/sesion
