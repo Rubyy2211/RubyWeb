@@ -19,8 +19,6 @@ El proyecto está organizado de la siguiente manera:
     - `Aplicacion.html`: Página de la aplicación principal.
     - **logicaFake/**: Contiene archivos JavaScript que simulan la lógica de la aplicación.
 
-- **html/**: Contiene archivos de recursos como imágenes y estilos CSS.
-
 ## Instalación
 
 ### Requisitos previos
