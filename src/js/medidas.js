@@ -1,6 +1,6 @@
 async function getAllMedidas() {
     try {
-        const response = await fetch('../rest/getmediciones.php'); // Update this path if needed
+        const response = await fetch('rest/getmediciones.php'); // Update this path if needed
         if (!response.ok) {
             throw new Error('Network response was not ok ' + response.statusText);
         }
@@ -23,7 +23,7 @@ async function getAllMedidas() {
 
 async function getUltimaMedida() {
         try {
-            const response = await fetch('../rest/getmediciones.php'); // Aseg�rate de que esta ruta sea correcta
+            const response = await fetch('rest/getmediciones.php'); // Aseg�rate de que esta ruta sea correcta
             if (!response.ok) {
                 throw new Error('Network response was not ok ' + response.statusText);
             }
