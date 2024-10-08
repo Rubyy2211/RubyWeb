@@ -1,29 +1,30 @@
 # RubyWeb
 
-## Descripción
+## DescripciÃ³n
 
-**RubyWeb** es un proyecto web diseñado para gestionar mediciones de gases a través de una API REST. Cada usuario está asociado con un sensor que recoge datos de gases, los cuales son enviados a la plataforma para su almacenamiento y análisis. La aplicación incluye un sistema de autenticación de usuarios y una interfaz web para consultar las mediciones registradas.
+**RubyWeb** es un proyecto web diseÃ±ado para gestionar mediciones de gases a travÃ©s de una API REST. Cada usuario estÃ¡ asociado con un sensor que recoge datos de gases, los cuales son enviados a la plataforma para su almacenamiento y anÃ¡lisis. La aplicaciÃ³n incluye un sistema de autenticaciÃ³n de usuarios y una interfaz web para consultar las mediciones registradas.
 ## Estructura del Proyecto
 
-El proyecto está organizado de la siguiente manera:
+El proyecto estÃ¡ organizado de la siguiente manera:
 
-- **logica/**: Contiene archivos PHP que implementan la lógica principal del servidor.
-    - `diHola.php`: Ejemplo de endpoint para saludar.
-    - `hacerLogin.php`: Módulo de autenticación.
+- **src/**
+-- **rest/**: Contiene los endpoints REST para la interacciÃ³n con la API.
+    - `enviarMedicion.php`, `getmediciones.php`: Servicios REST que ofrecen diferentes funcionalidades.
 
-- **rest/**: Contiene los endpoints REST para la interacción con la API.
-    - `diHola.php`, `enviarMedicion.php`, `getmediciones.php`: Servicios REST que ofrecen diferentes funcionalidades.
+ -- **js/**: Contiene los archivos JavaScript necesarios.
+    - `medidas.js`: Script principal para obtener medidas.
 
-- **ux/**: Contiene los archivos HTML y JavaScript necesarios para la interfaz de usuario.
-    - `index.html`: Página de inicio.
-    - `Aplicacion.html`: Página de la aplicación principal.
-    - **logicaFake/**: Contiene archivos JavaScript que simulan la lógica de la aplicación.
+ -- **conexion/**: Contiene el archivo php para conectarse a la base de datos.
+    - `conexion-bbdd.php`: ConexiÃ³n a la base de datos.
 
-## Instalación
+- **doc/**: Contiene la documentacion del proyecto.
+-- `bbdd`: Contiene documentaciÃ³n sobre la base de datos.
+
+## InstalaciÃ³n
 
 ### Requisitos previos
 
-Asegúrate de tener los siguientes programas instalados:
+AsegÃºrate de tener los siguientes programas instalados:
 
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
@@ -45,14 +46,11 @@ Asegúrate de tener los siguientes programas instalados:
    ```bash
    docker-compose up
    
-La aplicación estará disponible en http://localhost:8081.
+La aplicaciÃ³n estarÃ¡ disponible en http://localhost:8081.
 
 ### Uso
 #### Endpoints principales
-- `POST /rest/hacerLogin.php`: Endpoint para autenticación de usuarios.
-
--   `POST /rest/enviarMedicion.php`: Envía nuevas mediciones.
    
--   `POST /rest/enviarMedicion.php`: Envía nuevas mediciones.
+-   `POST /rest/enviarMedicion.php`: EnvÃ­a nuevas mediciones.
 
 -   `GET /rest/getmediciones.php`: Recupera las mediciones almacenadas.
