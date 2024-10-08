@@ -34,7 +34,7 @@ Asegúrate de tener los siguientes programas instalados:
 1. Clona el repositorio:
 
    ```bash
-   git clone <url-del-repositorio>
+   git clone https://github.com/Rubyy2211/RubyWeb.git
    cd RubyWeb
 2. Construye la imagen Docker:
 
@@ -46,7 +46,7 @@ Asegúrate de tener los siguientes programas instalados:
    ```bash
    docker-compose up
    
-La aplicación estará disponible en http://localhost:8081.
+La aplicación estará disponible en http://localhost:8081/src.
 
 ### Uso
 #### Endpoints principales
