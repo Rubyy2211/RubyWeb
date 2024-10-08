@@ -17,7 +17,7 @@
         }
     </style>
 </head>
-<body onload="getUltimaMedida()">
+<body onload="getUltimaMedida();  // Llama a la función para obtener la última medida">
 <table id="medicionesTable">
     <thead>
     <tr>
@@ -32,6 +32,6 @@
     <tr id="lastMeasurement"></tr> <!-- Fila para el último elemento -->
     </tbody>
 </table>
-<script src="logicaFake/medidas.js">getUltimaMedida()</script>
+<script src="js/medidas.js"></script>
 </body>
 </html>

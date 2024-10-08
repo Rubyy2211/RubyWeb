@@ -9,8 +9,9 @@ async function getAllMedidas() {
 
         // Display the data appropriately
         if (Array.isArray(data)) {
-            //p.textContent = data.map(item => `ID: ${item.id_medicion}, Hora: ${item.Hora}, Dia: ${item.Dia}, Lugar: ${item.Lugar}, Tipo de Gas: ${item.TipoGas}, Valor: ${item.Valor}`).join('\n');
-        } else {
+
+            return data;
+         } else {
             //p.textContent = 'No data available.';
         }
 
@@ -22,14 +23,14 @@ async function getAllMedidas() {
 
 async function getUltimaMedida() {
         try {
-            const response = await fetch('../rest/getmediciones.php'); // Asegúrate de que esta ruta sea correcta
+            const response = await fetch('../rest/getmediciones.php'); // Asegï¿½rate de que esta ruta sea correcta
             if (!response.ok) {
                 throw new Error('Network response was not ok ' + response.statusText);
             }
             const data = await response.json();
             const lastMeasurementRow = document.getElementById("lastMeasurement");
 
-            // Mostrar solo el último elemento
+            // Mostrar solo el ï¿½ltimo elemento
             if (Array.isArray(data) && data.length > 0) {
                 const lastItem = data[data.length - 1];
                 lastMeasurementRow.innerHTML = `
@@ -39,6 +40,7 @@ async function getUltimaMedida() {
                 <td>${lastItem.TipoGas}</td>
                 <td>${lastItem.Valor}</td>
             `;
+                return lastItem;
             } else {
                 lastMeasurementRow.innerHTML = '<td colspan="6">No hay datos disponibles.</td>';
             }
@@ -49,5 +51,5 @@ async function getUltimaMedida() {
         }
 }
 
-
-//getAllMedidas();
+// Exportar las funciones para que puedan ser requeridas en las pruebas
+module.exports = { getAllMedidas, getUltimaMedida };
