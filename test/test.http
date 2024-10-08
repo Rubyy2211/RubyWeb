@@ -1,8 +1,11 @@
 ### Obtener mediciones
-GET http://localhost:8081/rest/getmediciones.php
+GET http://localhost:8081/src/api/rest/getmediciones.php
+
+### Obtener última medición
+GET http://localhost:8081/src/api/rest/getUltimaMedicion.php
 
 ### Enviar Medicion
-POST http://localhost:8081/rest/enviarMedicion.php
+POST http://localhost:8081/src/api/rest/enviarMedicion.php
 Content-Type: application/json
 
 {
