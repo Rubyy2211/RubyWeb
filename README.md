@@ -54,3 +54,8 @@ La aplicación estará disponible en http://localhost:8081/src.
 -   `POST /rest/enviarMedicion.php`: Envía nuevas mediciones.
 
 -   `GET /rest/getmediciones.php`: Recupera las mediciones almacenadas.
+## Interfaz web
+La aplicación web proporciona una interfaz en la cual los usuarios pueden ver las mediciones de gases capturadas. Estas mediciones se muestran en una tabla accesible a través de la página principal.
+
+## phpMyAdmin
+Puedes acceder a phpMyAdmin en http://localhost:8082 para gestionar la base de datos.
