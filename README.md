@@ -1,61 +1,107 @@
-# RubyWeb
 
-## Descripción
+# Proyecto RubyWeb
 
-**RubyWeb** es un proyecto web diseñado para gestionar mediciones de gases a través de una API REST. Cada usuario está asociado con un sensor que recoge datos de gases, los cuales son enviados a la plataforma para su almacenamiento y análisis. La aplicación incluye un sistema de autenticación de usuarios y una interfaz web para consultar las mediciones registradas.
+Este proyecto es una aplicación web que utiliza varias tecnologías para manejar la emisión BLE y realizar mediciones de sensores. A continuación, se describen los pasos para la instalación, ejecución y detalles técnicos del proyecto.
+
+## Requisitos
+
+- Node.js (>= 12.x)
+- npm (Node Package Manager)
+- Acceso a internet para instalar dependencias
+
 ## Estructura del Proyecto
 
-El proyecto está organizado de la siguiente manera:
+El proyecto tiene la siguiente estructura básica:
 
-- **src/**
--- **rest/**: Contiene los endpoints REST para la interacción con la API.
-    - `enviarMedicion.php`, `getmediciones.php`: Servicios REST que ofrecen diferentes funcionalidades.
-
- -- **js/**: Contiene los archivos JavaScript necesarios.
-    - `medidas.js`: Script principal para obtener medidas.
-
- -- **conexion/**: Contiene el archivo php para conectarse a la base de datos.
-    - `conexion-bbdd.php`: Conexión a la base de datos.
-
-- **doc/**: Contiene la documentacion del proyecto.
--- `bbdd`: Contiene documentación sobre la base de datos.
+```
+/RubyWeb
+  ├── /api                  # Contiene el backend de la aplicación (posiblemente REST API)
+  ├── /app                  # Contiene la parte del frontend de la aplicación
+  ├── /node_modules          # Módulos de Node.js instalados
+  ├── /public                # Archivos públicos y estáticos
+  ├── /src                   # Código fuente de la aplicación
+  ├── /test                  # Pruebas unitarias
+  └── package.json           # Archivo de configuración de dependencias Node.js
+```
 
 ## Instalación
 
-### Requisitos previos
+Para instalar y ejecutar el proyecto, sigue los siguientes pasos:
 
-Asegúrate de tener los siguientes programas instalados:
+1. Clona el repositorio o extrae los archivos en tu máquina local.
+   
+   ```bash
+   git clone <URL_DEL_REPOSITORIO>
+   ```
 
-- [Docker](https://www.docker.com/)
-- [Docker Compose](https://docs.docker.com/compose/)
-
-### Instrucciones
-
-1. Clona el repositorio:
+2. Instala las dependencias del proyecto utilizando npm.
 
    ```bash
-   git clone https://github.com/Rubyy2211/RubyWeb.git
    cd RubyWeb
-2. Construye la imagen Docker:
+   npm install
+   ```
 
-   ```bash
-   docker-compose build
- 
-3. Inicia los contenedores:
+   Esto instalará todas las dependencias especificadas en el archivo `package.json`.
 
-   ```bash
-   docker-compose up
-   
-La aplicación estará disponible en http://localhost:8081/src.
+## Uso
 
-### Uso
-#### Endpoints principales
-   
--   `POST /rest/enviarMedicion.php`: Envía nuevas mediciones.
+### Desarrollo
 
--   `GET /rest/getmediciones.php`: Recupera las mediciones almacenadas.
-## Interfaz web
-La aplicación web proporciona una interfaz en la cual los usuarios pueden ver las mediciones de gases capturadas. Estas mediciones se muestran en una tabla accesible a través de la página principal.
+Para ejecutar el proyecto en modo de desarrollo, usa el siguiente comando:
 
-## phpMyAdmin
-Puedes acceder a phpMyAdmin en http://localhost:8082 para gestionar la base de datos.
+```bash
+npm run dev
+```
+
+Este comando iniciará el servidor en modo de desarrollo y observará los cambios en los archivos de la aplicación.
+
+### Producción
+
+Para construir el proyecto para un entorno de producción, ejecuta:
+
+```bash
+npm run build
+```
+
+Esto generará los archivos optimizados para producción en la carpeta `build`.
+
+### Backend
+
+Si tu proyecto tiene una carpeta `/api`, puedes configurar y ejecutar el servidor de la API utilizando el siguiente comando:
+
+```bash
+npm run start-api
+```
+
+Este comando arrancará el servidor backend en el puerto que hayas configurado.
+
+## Scripts Disponibles
+
+- `npm run dev` - Inicia el entorno de desarrollo.
+- `npm run build` - Construye la aplicación para producción.
+- `npm start` - Inicia la aplicación en el modo de producción.
+- `npm run test` - Ejecuta las pruebas del proyecto.
+
+## Pruebas
+
+Para ejecutar las pruebas de la aplicación, utiliza:
+
+```bash
+npm run test
+```
+
+## Contribuciones
+
+Para contribuir al proyecto, sigue estos pasos:
+
+1. Haz un fork del repositorio.
+2. Crea una nueva rama (`git checkout -b feature/nueva-funcionalidad`).
+3. Realiza los cambios necesarios.
+4. Haz commit a tus cambios (`git commit -m 'Añadir nueva funcionalidad'`).
+5. Sube tus cambios (`git push origin feature/nueva-funcionalidad`).
+6. Crea un nuevo Pull Request.
+
+## Notas
+
+- Asegúrate de tener todos los permisos necesarios para ejecutar el proyecto, especialmente si utiliza funcionalidades específicas del sistema como Bluetooth.
+- Consulta la documentación de los archivos `api` y `app` si necesitas más detalles sobre cómo funcionan las diferentes partes de la aplicación.

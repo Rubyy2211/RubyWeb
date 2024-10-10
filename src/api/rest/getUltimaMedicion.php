@@ -1,5 +1,6 @@
 <?php
 require_once "../conexion/conexion-bbdd.php";
+require_once('../../logica/ultimaMedida.php');
 
 $query = "SELECT * FROM mediciones ORDER BY Dia DESC, Hora DESC LIMIT 1";
 
@@ -26,10 +27,10 @@ if ($resultado->num_rows > 0) {
 
 $stmt->close();
 $conn->close();
-
+$last = ultimaMedida($medidas);
 // Devolver los resultados como JSON
 header('Content-Type: application/json');
-echo json_encode($medidas);
+echo json_encode($last);
 
 
 

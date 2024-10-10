@@ -1,5 +1,6 @@
 <?php
 require_once "../conexion/conexion-bbdd.php";
+require_once('../../logica/medidas.php');
 
     $query = "SELECT * FROM mediciones";
 
@@ -26,10 +27,11 @@ require_once "../conexion/conexion-bbdd.php";
 
     $stmt->close();
     $conn->close();
-
+    // Procesar las medidas con la función medidas()
+    $medidasProcesadas = medidas($medidas);
     // Devolver los resultados como JSON
     header('Content-Type: application/json');
-    echo json_encode($medidas);
+    echo json_encode($medidasProcesadas);
 
 
 

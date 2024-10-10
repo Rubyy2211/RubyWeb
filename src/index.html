@@ -1,37 +1,62 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mediciones</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: left;
-        }
-    </style>
 </head>
-<body onload="getUltimaMedida();  // Llama a la función para obtener la última medida">
-<table id="medicionesTable">
-    <thead>
-    <tr>
-        <th>Hora</th>
-        <th>Día</th>
-        <th>Lugar</th>
-        <th>Tipo de Gas</th>
-        <th>Valor</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr id="lastMeasurement"></tr> <!-- Fila para el último elemento -->
-    </tbody>
-</table>
-<script src="js/medidas.js"></script>
+<body>
+<button onclick="botonPulsado()">Obtener Mediciones</button>
+
+<div id="salida"></div> <!-- Para todas las mediciones -->
+<div id="ultimaMedicion"></div> <!-- Para la última medición -->
+
+<script src="logica/fake/medidas.js"></script>
+<script src="logica/fake/ultimaMedida.js"></script>
+<script>
+    function botonPulsado() {
+
+        // Llamada para obtener todas las mediciones
+        /*getAllMedidas(function(err, res) {
+            if (err) {
+                alert("Error: " + err);
+                return;
+            }
+            const nombre = res.nombre;
+            // Mostrar todas las mediciones en el elemento con id "salida"
+            var salida = document.getElementById("salida");
+            salida.innerHTML = `${nombre}<br>`;
+
+            const medid=res.contenido;
+            medid.forEach(function(medida) {
+                salida.innerHTML += `
+                Hora: ${medida.Hora},
+                Día: ${medida.Dia},
+                Lugar: ${medida.Lugar},
+                Tipo de Gas: ${medida.TipoGas},
+                Valor: ${medida.Valor}<br>`;
+            });
+        });
+*/
+        // Llamada para obtener la última medición
+        getUltimaMedida(function(err, res) {
+            if (err) {
+                alert("Error: " + err);
+                return;
+            }
+
+            // Mostrar la última medición en el elemento con id "ultimaMedicion"
+            var ultimaMedicion = document.getElementById("ultimaMedicion");
+            ultimaMedicion.innerHTML = `
+            Última Medición: <br>
+            Hora: ${res.Hora},
+            Día: ${res.Dia},
+            Lugar: ${res.Lugar},
+            Tipo de Gas: ${res.TipoGas},
+            Valor: ${res.Valor}`;
+        });
+
+    }
+</script>
 </body>
 </html>
