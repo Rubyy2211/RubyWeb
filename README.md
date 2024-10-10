@@ -45,7 +45,7 @@ Para instalar y ejecutar el proyecto, sigue los siguientes pasos:
    Esto instalará todas las dependencias especificadas en el archivo `package.json`.
 3. Por último, construye los contenedores de docker
 
-  ```bash
+   ```bash
    docker compose up --build
    ```
 ## Uso
