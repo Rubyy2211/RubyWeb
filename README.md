@@ -8,6 +8,7 @@ Este proyecto es una aplicación web que utiliza varias tecnologías para maneja
 - Node.js (>= 12.x)
 - npm (Node Package Manager)
 - Acceso a internet para instalar dependencias
+- Docker
 
 ## Estructura del Proyecto
 
@@ -42,7 +43,11 @@ Para instalar y ejecutar el proyecto, sigue los siguientes pasos:
    ```
 
    Esto instalará todas las dependencias especificadas en el archivo `package.json`.
+3. Por último, construye los contenedores de docker
 
+  ```bash
+   docker compose up --build
+   ```
 ## Uso
 
 ### Desarrollo
