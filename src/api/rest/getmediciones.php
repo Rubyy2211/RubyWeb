@@ -1,7 +1,20 @@
 <?php
 require_once "../conexion/conexion-bbdd.php";
 require_once('../../logica/medidas.php');
-
+/**
+ * @OA\Get(
+ *     path="src/api/getmediciones.php",
+ *     @OA\Response(
+ *         response=200,
+ *         description="Lista de mediciones recuperadas con éxito",
+ *         @OA\JsonContent(type="array", @OA\Items(ref="#/components/schemas/Medicion"))
+ *     ),
+ *     @OA\Response(
+ *         response=500,
+ *         description="Error al recuperar las mediciones"
+ *     )
+ * )
+ */
     $query = "SELECT * FROM mediciones";
 
     // Preparar y ejecutar la consulta

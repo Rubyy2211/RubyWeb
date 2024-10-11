@@ -1,8 +1,13 @@
 {
   "dependencies": {
-    "node.js": "^0.0.1-security"
+    "composer": "^4.1.0",
+    "node.js": "^0.0.1-security",
+    "php": "^1.1.0"
   },
   "devDependencies": {
     "mocha": "^10.7.3"
+  },
+  "scripts": {
+    "test": "mocha"
   }
 }
